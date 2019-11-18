@@ -1,10 +1,35 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+<meta charset="UTF-8" />
+<title>gameView</title>
 </head>
 <body>
-
+	<h2>戦士一覧</h2>
+	<p th:if="${#maps.isEmpty(fighters)}">戦士がいません。</p>
+	<table th:unless="${#maps.isEmpty(fighters)}" border="1">
+		<thead>
+			<tr>
+				<th>戦士ID</th>
+				<th>戦士名</th>
+				<th>HP</th>
+				<th>注文個数</th>
+			</tr>
+		</thead>
+		<tbody>
+		<tr th:each="entry: ${fighters}">
+			<td th:text="${entry.value.id}"></td>
+			<td th:text="${entry.value.name}"></td>
+			<td th:text="${entry.value.hp}"></td>
+			<!-- <td>
+				<form th:action="@{/battle}" method="POST" th:object="${listForm}">
+					<input type="hidden" name="itemId" th:value="${entry.value.itemId}" />
+					<input type="number" name="num" min="1"/>
+					<input type="submit" value="カートに追加" />
+				</form>
+			</td> -->
+		</tr>
+		</tbody>
+	</table>
 </body>
 </html>

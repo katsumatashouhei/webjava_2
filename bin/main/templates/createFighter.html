@@ -2,25 +2,24 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8" />
-<title>gameView</title>
+<title>createFighter</title>
 </head>
 <body>
-	<h2>戦士一覧</h2>
-	<p th:if="${#maps.isEmpty(fighters)}">戦士がいません。</p>
-	<table th:unless="${#maps.isEmpty(fighters)}" border="1">
+	<h2>キャラ作成</h2>
+	<table>
 		<thead>
-			<tr>
-				<th>戦士ID</th>
-				<th>戦士名</th>
-				<th>HP</th>
-				<th>注文個数</th>
-			</tr>
 		</thead>
 		<tbody>
-		<tr th:each="entry: ${fighters}">
-			<td th:text="${entry.value.id}"></td>
-			<td th:text="${entry.value.name}"></td>
-			<td th:text="${entry.value.hp}"></td>
+		<tr><td>職業</td>
+			<td th:each="job : ${radionOtherJobs}">
+				<input type="radio" name="selectJob" th:value="${fighters.key}" />
+			</td>
+			<td>
+				<input type="radio" name="selectJob" th:value="${fighters.key}" />
+			</td>
+			<td>
+				<input type="radio" name="selectJob" th:value="${fighters.key}" />
+			</td>
 			<!-- <td>
 				<form th:action="@{/battle}" method="POST" th:object="${listForm}">
 					<input type="hidden" name="itemId" th:value="${entry.value.itemId}" />
