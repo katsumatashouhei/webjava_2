@@ -10,6 +10,7 @@ import org.springframework.web.servlet.ModelAndView;
 import jp.co.systena.tigerscave.fighting.model.Fighters;
 import jp.co.systena.tigerscave.fighting.service.GameService;
 
+
 @Controller
 public class FightingController {
 
@@ -18,6 +19,22 @@ public class FightingController {
 
   @Autowired
   GameService gameService;// サービスクラス
+
+  /**
+   * キャラクター作成画面
+   *
+   * @param mav the mav
+   * @param listForm the list form
+   * @param bindingResult the binding result
+   * @return the model and view
+   */
+  @RequestMapping(value = "/findJob", method = RequestMethod.GET) // URLとのマッピング
+  public ModelAndView findJob(ModelAndView mav) {
+
+  //表示画面 のテンプレート名を設定
+    mav.setViewName("gameView");
+    return mav;
+  }
 
   /**
    * 戦士一覧画面表示
