@@ -15,18 +15,13 @@ public class GameService {
    *
    * @return 戦士一覧
    */
-  public Map<Integer, Fighters> getFighters(){
+  Map<Integer, Fighters> fightersMap = new LinkedHashMap<Integer, Fighters>();
 
-    Fighters fighter1 = new Fighters(10, "shohei", 100);
-    Fighters fighter2 = new Fighters(20, "demon", 500);
-    Fighters fighter3 = new Fighters(30, "angel", 50);
+  public Map<Integer, Fighters> getPartyListMap(){
+    return fightersMap;
+  }
 
-    // 戦士たちをMapに格納
-    Map<Integer, Fighters> fighterMap = new LinkedHashMap<Integer, Fighters>();
-    fighterMap.put(fighter1.getId(), fighter1);
-    fighterMap.put(fighter2.getId(), fighter2);
-    fighterMap.put(fighter3.getId(), fighter3);
-
-    return fighterMap;
+  public void addPartyListMap(int id, Fighters fighters) {
+    fightersMap.put(id, fighters);
   }
 }
